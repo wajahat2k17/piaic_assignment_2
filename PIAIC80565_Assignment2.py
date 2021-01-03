@@ -48,7 +48,7 @@ def function2():
     #array value should be satart from 10 and end with 36 (both included)
     # Hint: dtype, reshape 
     
-    x = np.arange(1,28,dtype=np.float64).reshape((3,3,3))     #wrtie your code here
+    x = np.arange(10,37,dtype=np.float64).reshape((3,3,3))     #wrtie your code here
 
 
     return x
@@ -72,7 +72,8 @@ def function3():
     #extract those numbers from given array. those are must exist in 5,7 Table
     #example [35,70,105,..]
     a = np.arange(1, 100*10+1).reshape((100,10))
-    x = a[] #wrtie your code here
+    x = a[(a%5==0) & (a%7==0)].tolist()
+    
     return x
     """
     Expected Output:
@@ -80,26 +81,26 @@ def function3():
        490, 525, 560, 595, 630, 665, 700, 735, 770, 805, 840, 875, 910,
        945, 980] 
     """ 
-    
+
 #task4
 def function4():
     #Swap columns 1 and 2 in the array arr.
    
     arr = np.arange(9).reshape(3,3)
-  
-    return #wrtie your code here
+    
+    return arr[:, [1,0,2]]
     """
     Expected Output:
           array([[1, 0, 2],
                 [4, 3, 5],
                 [7, 6, 8]])
     """ 
-    
+
 #task5
 def function5():
     #Create a null vector of size 20 with 4 rows and 5 columns with numpy function
    
-    z = #wrtie your code here
+    z = np.zeros(shape=(4,5), dtype=np.int)
   
     return z
     """
@@ -114,17 +115,18 @@ def function5():
 def function6():
     # Create a null vector of size 10 but the fifth and eighth value which is 10,20 respectively
    
-    arr = #wrtie your code here
+    arr = np.zeros(shape=(10), dtype=np.int)
+    arr[4] = 10
+    arr[7] = 20
   
     return arr
-   
-    
+
 #task7
 def function7():
     #  Create an array of zeros with the same shape and type as X. Dont use reshape method
     x = np.arange(4, dtype=np.int64)
   
-    return #write your code here
+    return np.zeros_like(x)
 
     """
     Expected Output:
@@ -135,78 +137,76 @@ def function7():
 def function8():
     # Create a new array of 2x5 uints, filled with 6.
     
-    x = #write your code here
+    x = np.full((2, 5), 6)
   
     return x
 
-     """
-     Expected Output:
+    """
+    Expected Output:
               array([[6, 6, 6, 6, 6],
                      [6, 6, 6, 6, 6]], dtype=uint32)
-     """ 
-    
+    """ 
+
 #task9
 def function9():
     # Create an array of 2, 4, 6, 8, ..., 100.
     
-    a = # write your code here
+    a = np.arange(2,102,2)
   
     return a
 
-     """
-     Expected Output:
-              array([  2,   4,   6,   8,  10,  12,  14,  16,  18,  20,  22,  24,  26,
-                    28,  30,  32,  34,  36,  38,  40,  42,  44,  46,  48,  50,  52,
-                    54,  56,  58,  60,  62,  64,  66,  68,  70,  72,  74,  76,  78,
-                    80,  82,  84,  86,  88,  90,  92,  94,  96,  98, 100])
-     """ 
-    
+    """
+    Expected Output:
+            array([  2,   4,   6,   8,  10,  12,  14,  16,  18,  20,  22,  24,  26,
+                28,  30,  32,  34,  36,  38,  40,  42,  44,  46,  48,  50,  52,
+                54,  56,  58,  60,  62,  64,  66,  68,  70,  72,  74,  76,  78,
+                80,  82,  84,  86,  88,  90,  92,  94,  96,  98, 100])
+    """ 
 #task10
 def function10():
     # Subtract the 1d array brr from the 2d array arr, such that each item of brr subtracts from respective row of arr.
     
     arr = np.array([[3,3,3],[4,4,4],[5,5,5]])
     brr = np.array([1,2,3])
-    subt = # write your code here 
+    subt = np.subtract(arr.T, brr) 
   
     return subt
 
-     """
-     Expected Output:
-               array([[2 2 2]
-                      [2 2 2]
-                      [2 2 2]])
-     """ 
-    
-    
+    """
+    Expected Output:
+            array([[2 2 2]
+                    [2 2 2]
+                    [2 2 2]])
+    """ 
+
 #task11
 def function11():
     # Replace all odd numbers in arr with -1 without changing arr.
     
     arr = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
-    ans = #write your code here 
+    ans = np.where(arr%2==0, arr, -1)
   
     return ans
 
-     """
-     Expected Output:
-              array([ 0, -1,  2, -1,  4, -1,  6, -1,  8, -1])
-     """ 
-    
+    """
+    Expected Output:
+            array([ 0, -1,  2, -1,  4, -1,  6, -1,  8, -1])
+    """
+
 #task12
 def function12():
     # Create the following pattern without hardcoding. Use only numpy functions and the below input array arr.
     # HINT: use stacking concept
     
     arr = np.array([1,2,3])
-    ans = #write your code here 
+    ans = np.hstack((arr.repeat(3), np.tile(arr,3)))
   
     return ans
 
-     """
-     Expected Output:
-              array([1, 1, 1, 2, 2, 2, 3, 3, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3])
-     """ 
+    """
+    Expected Output:
+            array([1, 1, 1, 2, 2, 2, 3, 3, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3])
+    """ 
 
 #task13
 def function13():
@@ -214,14 +214,14 @@ def function13():
     
     
     arr = np.array([2, 6, 1, 9, 10, 3, 27])
-    ans = #write your code here 
+    ans = arr[(arr>5) & (arr<10)]
   
     return ans
 
-     """
-     Expected Output:
-              array([6, 9])
-     """ 
+    """
+    Expected Output:
+            array([6, 9])
+    """  
 
 #task14
 def function14():
@@ -229,18 +229,20 @@ def function14():
     # Hint use split method
     
     
-    arr = np.arange(10, 34, 1) #write reshape code
-    ans = #write your code here 
-  
-    return ans
+    arr = np.arange(10, 34, 1).reshape((8,3))
+    ans = np.split(arr,4)
 
-     """
-     Expected Output:
-       [array([[10, 11, 12],[13, 14, 15]]), 
-        array([[16, 17, 18],[19, 20, 21]]), 
-        array([[22, 23, 24],[25, 26, 27]]), 
-        array([[28, 29, 30],[31, 32, 33]])]
-     """ 
+    return ans
+  
+  
+    
+    """
+    Expected Output:
+    [array([[10, 11, 12],[13, 14, 15]]), 
+    array([[16, 17, 18],[19, 20, 21]]), 
+    array([[22, 23, 24],[25, 26, 27]]), 
+    array([[28, 29, 30],[31, 32, 33]])]
+    """
     
 #task15
 def function15():
@@ -248,17 +250,18 @@ def function15():
     
     
     arr = np.array([[ 8,  2, -2],[-4,  1,  7],[ 6,  3,  9]])
-    ans = #write your code here 
+    ans = arr[:,1].argsort()
+    ans = arr[ans]
   
     return ans
 
-     """
-     Expected Output:
-           array([[-4,  1,  7],
-                   [ 8,  2, -2],
-                   [ 6,  3,  9]])
-     """ 
-    
+    """
+    Expected Output:
+        array([[-4,  1,  7],
+                [ 8,  2, -2],
+                [ 6,  3,  9]])
+    """ 
+
 #task16
 def function16():
     #Write a NumPy program to join a sequence of arrays along depth.
@@ -266,49 +269,49 @@ def function16():
     
     x = np.array([[1], [2], [3]])
     y = np.array([[2], [3], [4]])
-    ans = #write your code here 
+    ans = np.dstack([x,y])
   
     return ans
 
-     """
-     Expected Output:
-                [[[1 2]]
+    """
+    Expected Output:
+            [[[1 2]]
 
-                 [[2 3]]
+                [[2 3]]
 
-                 [[3 4]]]
-     """ 
-    
-    
+                [[3 4]]]
+    """ 
+
+
 #Task17
 def function17():
     # replace numbers with "YES" if it divided by 3 and 5
     # otherwise it will be replaced with "NO"
     # Hint: np.where
     arr = np.arange(1,10*10+1).reshape((10,10))
-    return           # Write Your Code HERE
-
-#Excpected Out
-"""
-array([['NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO'],
-       ['NO', 'NO', 'NO', 'NO', 'YES', 'NO', 'NO', 'NO', 'NO', 'NO'],
-       ['NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'YES'],
-       ['NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO'],
-       ['NO', 'NO', 'NO', 'NO', 'YES', 'NO', 'NO', 'NO', 'NO', 'NO'],
-       ['NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'YES'],
-       ['NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO'],
-       ['NO', 'NO', 'NO', 'NO', 'YES', 'NO', 'NO', 'NO', 'NO', 'NO'],
-       ['NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'YES'],
-       ['NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO']],
-      dtype='<U3')
-"""
+    arr=np.where((arr%3==0) & (arr%5==0),"YES","NO")
+    return arr
+    #Excpected Out
+    """
+    array([['NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO'],
+        ['NO', 'NO', 'NO', 'NO', 'YES', 'NO', 'NO', 'NO', 'NO', 'NO'],
+        ['NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'YES'],
+        ['NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO'],
+        ['NO', 'NO', 'NO', 'NO', 'YES', 'NO', 'NO', 'NO', 'NO', 'NO'],
+        ['NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'YES'],
+        ['NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO'],
+        ['NO', 'NO', 'NO', 'NO', 'YES', 'NO', 'NO', 'NO', 'NO', 'NO'],
+        ['NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'YES'],
+        ['NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO']],
+        dtype='<U3')
+    """
 
 #Task18
 def function18():
     # count values of "students" are exist in "piaic"
     piaic = np.arange(100)
     students = np.array([5,20,50,200,301,7001])
-    x = # Write you code Here
+    x=np.count_nonzero(np.isin(students, piaic))
     return x
 
     #Expected output: 3
@@ -322,11 +325,11 @@ def function19():
     # then create variable "b" with value equal to 5
     # Now return output as "(X*W)+b:
 
-    X =   # Write your code here
-    W =   # Write your code here 
-    b =   # Write your code here
-    output =    # Write your code here
-
+    X = np.arange(1,26).reshape(5,5)
+    W = np.copy(X).T 
+    b = 5
+    output = (X*W)+b
+    return output
     #expected output
     """
     array([[  6,  17,  38,  69, 110],
@@ -336,14 +339,14 @@ def function19():
        [110, 225, 350, 485, 630]])
     """
 
-
 #Task20
-def fucntion20():
+def function20():
     #apply fuction "abc" on each value of Array "X"
     x = np.arange(1,11)
     def abc(x):
         return x*2+3-2
 
-    return #Write your Code here
+    return np.apply_along_axis(abc,0, x)
+
 #Expected Output: array([ 3,  5,  7,  9, 11, 13, 15, 17, 19, 21])
 #--------------------------X-----------------------------X-----------------------------X----------------------------X---------------------
